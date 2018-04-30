@@ -78,8 +78,7 @@ while game:
                         break
                     else:
                         print("The symbol does not match the piece")
-                else:
-                    print("The posistion does not match the piece ")
+
         if len(answer) == 5:
             if piece.returnX() == int(answer[1:2]):
                 if piece.returnY() == int(answer[2:3]):
@@ -95,6 +94,7 @@ while game:
     if not brickFound == True:
         print("")
         print("No piece found on that posistion")
+        brickFound = True
 
 # FÅ den til kun at output 'P'
 # KnG1E2 Knight moves from G1 to E2

@@ -92,15 +92,6 @@ class Rook:
         chessboard[self.x][self.y] = self.symboll
 
     def verifyMove(self, startPosX, startPosY, endPosX, endPosY, piece, board, brick, listPieces):
-        print("Moving piece {}".format(piece))
-        print("startPosX, {}".format(startPosX))
-        print("startPosY, {}".format(startPosY))
-        print("endPosX, {}".format(endPosX))
-        print("endPosY, {}".format(endPosY))
-        print("self.x, {}".format(self.x))
-        print("self.y, {}".format(self.y))
-        print("Status of THIS piece is: {}".format(piece.returnStatus()))
-
         try:
             if piece.returnX() == endPosX: # Is the axis the same, if so, we know that is moving in one direction
                 if board.checkIfPieceOnPos(endPosX, endPosY, piece): #Checking if there is a piece on the desired position
@@ -111,9 +102,12 @@ class Rook:
                     print("Starting loop")
                     for _piece in listPieces: # We will go through the whole
                         if _piece.returnX() == endPosX: #This will look for all the pieces on THE Y AXIS. YES
-                            print("The symbol of the piece on the x axis is: {}".format(_piece.symboll))
-                            print("The desired position")
-                            #MAKE THIS WORK HERE WORK IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                            print("The symbol of the piece on the Y axis is: {}".format(_piece.symboll))
+
+                            if _piece.returnY() == endPosY:
+                                print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll())
+                                print("The desired position")
+                                #MAKE THIS WORK HERE WORK IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
 
 
@@ -126,7 +120,11 @@ class Rook:
                     print("Starting loop")
                     for _piece in listPieces: # We will go through the whole
                         if _piece.returnY() == endPosY: #This will look for all the pieces on THE X AXIS. YES
-                            print("The symbol of the piece on the y axis is: {}".format(_piece.symboll))
+                            print("The symbol of the piece on the x axis is: {}".format(_piece.symboll))
+                            print("The desired position")
+
+                        if _piece.returnX() == endPosX:
+                            print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll())
                             print("The desired position")
                             #MAKE THIS WORK HERE WORK IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
             else:
@@ -155,18 +153,25 @@ class Knight:
 
     def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board, brick, listPieces):
         try:
-            print("This is endPosX {} and this is peice.returnX(): {}".format(endPosX, piece.returnX()))
-            print("This is the whole result which is endPosX - piece.returnX() = {}\n".format(endPosX - piece.returnX()))
-            print(2 == -2 or -1 or 1 or 2)
-            if (endPosX - piece.returnX()) == -2 or -1 or 1 or 2:
+            if (endPosX - piece.returnX()) == abs(int(1)): # if the Knight moves 1 to the right.
                 print("This is true for x")
-                if (endPosY - piece.returnY()) == -2 or -1 or 1 or 2:
+                if (endPosY - piece.returnY()) == abs(int(2)): # If the Knight moves 2 to up
                     print("This is true for y")
-                    board.move(piece, endPosX, endPosY)
+                    board.move(piece, endPosY, endPosX)
                 else:
                     print("invalid move")
             else:
                 print("Invalid move")
+
+
+            if (endPosX - piece.returnX()) == abs(int(2)): # if the knigt moves 2 to the left
+                if (endPosY - piece.returnY()) == abs(int(1)): # if the knigt moves 1 up
+                    board.move(piece, endPosY, endPosX)
+                else:
+                    print("Invalid move")
+            else:
+                print("Invalid move")
+
         except IndexError:
             print("The tile you are moving to does not exist")
 
