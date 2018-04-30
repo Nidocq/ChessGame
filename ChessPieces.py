@@ -189,11 +189,14 @@ class Bishop:
         self.Iswhite = status
         chessboard[self.x][self.y] = self.symboll
 
-    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board):
-         try:
+    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board, brick, listPieces):
+        try:
             if (abs(piece.returnX() - piece.returnY())) == (abs(endPosX - endPosY)):
                 print("Now this is true")
-                board.move(piece, endPosX, endPosY)
+                board.move(piece, endPosY, endPosX)
+            else:
+                print("Not a legal move")
+
         except IndexError:
             print("The tile you are moving to does not exist")
 
