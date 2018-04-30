@@ -1,0 +1,3 @@
+1. Bug with the rook being able to move past another brick
+2. Pawn can not attack to the sides, like it should be able to
+3. Pawn can move back illegal move
