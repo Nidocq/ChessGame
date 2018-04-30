@@ -12,9 +12,6 @@ tile = 39.3
 gameExit = False
 boolRect = False
 
-pygame.mask.from_threshold(Surface, color, threshold = (0,0,0,255), othersurface = None, palette_colors = 1)
-
-
 def makeShadow():
     #rect = pygame.draw.rect(gameDisplay, (255, 0, 0), [44.5, 44.5, edge, edge])
     s = pygame.Surface((39.9, 39.9))
@@ -27,7 +24,6 @@ def pawnB(x, y): # Read the input of this function and display it on the board
 
 
 boardImage = pygame.image.load('Pictures/Board.png')
-
 
 W_Pawn = pygame.image.load('Pictures/W_Pawn.png')
 W_Rook = pygame.image.load('Pictures/W_Rook.png')

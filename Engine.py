@@ -63,36 +63,34 @@ game = True
 Engine.showBoard()
 while game:
 
-    answer = str(input('\nHvad skal dine koordinater være?')) # PD2D4
+    answer = str(input('\nHvad skal dine koordinater være? ')) # PD2D4
     #answer = "P1113"
 
 
     for piece in listPieces:
-        # if piece.returnX() == int(answer[1:2]):
-        #     if piece.returnY() == int(answer[2:3]):
-                if len(answer) == 6:
-                    if piece.returnX() == int(answer[2:3]):
-                        if piece.returnY() == int(answer[3:4]):
-                            if piece.symboll == answer[0:2]:
-                                piece.verifyMove(int(answer[2:3]), int(answer[3:4]), int(answer[4:5]), int(answer[5:6]), piece, thisChessBoard, str(answer[0:2]), listPieces)
-                                Engine.showBoard()
-                                brickFound = True
-                                break
-                            else:
-                                print("The symbol does not match the piece")
-                        else:
-                            print("The posistion of Y does not match the ")
-                if len(answer) == 5:
-                    if piece.returnX() == int(answer[1:2]):
-                        if piece.returnY() == int(answer[2:3]):
-                            if piece.symboll == answer[0:1]:
-                                piece.verifyMove(int(answer[1:2]), int(answer[2:3]), int(answer[3:4]), int(answer[4:5]), piece, thisChessBoard, str(answer[0:1]), listPieces)
-                                Engine.showBoard()
-                                brickFound = True
-                                break
-                            else:
-                                print("")
-                                print("The symbol does not match the piece")
+        if len(answer) == 6:
+            if piece.returnX() == int(answer[2:3]):
+                if piece.returnY() == int(answer[3:4]):
+                    if piece.symboll == answer[0:2]:
+                        piece.verifyMove(int(answer[2:3]), int(answer[3:4]), int(answer[4:5]), int(answer[5:6]), piece, thisChessBoard, str(answer[0:2]), listPieces)
+                        Engine.showBoard()
+                        brickFound = True
+                        break
+                    else:
+                        print("The symbol does not match the piece")
+                else:
+                    print("The posistion does not match the piece ")
+        if len(answer) == 5:
+            if piece.returnX() == int(answer[1:2]):
+                if piece.returnY() == int(answer[2:3]):
+                    if piece.symboll == answer[0:1]:
+                        piece.verifyMove(int(answer[1:2]), int(answer[2:3]), int(answer[3:4]), int(answer[4:5]), piece, thisChessBoard, str(answer[0:1]), listPieces)
+                        Engine.showBoard()
+                        brickFound = True
+                        break
+                    else:
+                        print("")
+                        print("The symbol does not match the piece")
 
     if not brickFound == True:
         print("")
