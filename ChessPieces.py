@@ -101,12 +101,6 @@ class Rook:
         print("self.y, {}".format(self.y))
         print("Status of THIS piece is: {}".format(piece.returnStatus()))
 
-        try:
-            #if int(endPosY-piece.returnY() < 7 & endPosY-piece.returnY() > -7) & int(endPosX-piece.returnX() < 7 & endPosX-piece.returnX() > -7) == False:
-            if piece.returnX() == endPosX:
-
-        except IndexError:
-            print("The tile you are moving to does not exist")
 
     def returnStatus(self):
         return self.Iswhite
@@ -153,11 +147,14 @@ class Bishop:
         self.Iswhite = status
         chessboard[self.x][self.y] = self.symboll
 
-    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board):
-        print("Starting on pos {} {} - Ending on pos {} {}".format(startPosX, startPosY, endPosX, endPosY))
-        print("statement {} if {} - {} < 1 (result is {})".format(endPosY-self.y < 1, endPosY,self.y,endPosY-self.y))
-        board.checkIfPieceOnPos(endPosX, endPosY)
-        board.move(piece, endPosX, endPosY)
+    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board, brick, listPieces):
+        try:
+            if (abs(piece.returnX() - piece.returnY())) == (abs(endPosX - endPosY)):
+                print("Now this is true")
+                board.move(piece, endPosX, endPosY)
+        except IndexError:
+            print("The tile you are moving to does not exist")
+
 
     def returnStatus(self):
         return self.Iswhite

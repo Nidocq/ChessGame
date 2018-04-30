@@ -68,8 +68,8 @@ while game:
 
 
     for piece in listPieces:
-        if piece.returnX() == int(answer[1:2]):
-            if piece.returnY() == int(answer[2:3]):
+        # if piece.returnX() == int(answer[1:2]):
+        #     if piece.returnY() == int(answer[2:3]):
                 if len(answer) == 6:
                     if piece.returnX() == int(answer[2:3]):
                         if piece.returnY() == int(answer[3:4]):
