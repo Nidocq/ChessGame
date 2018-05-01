@@ -1,6 +1,7 @@
 from chessBoard import *
 from ChessPieces import *
 
+
 class Engine:
     def __init__(self):
         chessBoard.__init__(self)
@@ -95,6 +96,7 @@ while game:
         print("")
         print("No piece found on that posistion")
         brickFound = True
+
 
 # FÅ den til kun at output 'P'
 # KnG1E2 Knight moves from G1 to E2

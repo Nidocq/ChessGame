@@ -18,24 +18,57 @@ def makeShadow():
     s.set_alpha(120)
     gameDisplay.blit(s, (44.5, 44.5))
 
-def pawnB(x, y): # Read the input of this function and display it on the board
+
+def PawnW(x, y):
+    W_Pawn = pygame.image.load('Pictures/W_Pawn.png')
+    gameDisplay.blit(W_Pawn,(edge+tile*x, edge+tile*y))
+
+def PawnB(x, y): # Read the input of this function and display it on the board
     B_Pawn = pygame.image.load('Pictures/B_Pawn.png')
     gameDisplay.blit(B_Pawn,(edge+tile*x, edge+tile*y))
 
+def RookW(x, y):
+    W_Rook = pygame.image.load('Pictures/W_Rook.png')
+    gameDisplay.blit(W_Rook,(edge+tile*x, edge+tile*y))
+
+def RookB(x, y):
+    B_Rook = pygame.image.load('Pictures/B_Rook.png')
+    gameDisplay.blit(B_Rook,(edge+tile*x, edge+tile*y))
+
+def KnightW(x, y):
+    W_Knight = pygame.image.load('Pictures/W_Knight.png')
+    gameDisplay.blit(W_Knight,(edge+tile*x, edge+tile*y))
+
+def KnightB(x, y):
+    B_Knight = pygame.image.load('Pictures/B_Knight.png')
+    gameDisplay.blit(B_Knight,(edge+tile*x, edge+tile*y))
+
+def BishopW(x, y):
+    W_Bishop = pygame.image.load('Pictures/W_Bishop.png')
+    gameDisplay.blit(W_Bishop,(edge+tile*x, edge+tile*y))
+
+def BishopB(x, y):
+    B_Bishop = pygame.image.load('Pictures/B_Bishop.png')
+    gameDisplay.blit(B_Bishop,(edge+tile*x, edge+tile*y))
+
+def QueenW(x, y):
+    W_Queen = pygame.image.load('Pictures/W_Queen.png')
+    gameDisplay.blit(W_Queen,(edge+tile*x, edge+tile*y))
+
+def QueenB(x, y):
+    B_Queen = pygame.image.load('Pictures/B_Queen.png')
+    gameDisplay.blit(B_Queen,(edge+tile*x, edge+tile*y))
+
+def KingW(x, y):
+    W_King = pygame.image.load('Pictures/W_King.png')
+    gameDisplay.blit(W_King,(edge+tile*x, edge+tile*y))
+
+def KingB(x, y):
+    B_King = pygame.image.load('Pictures/B_King.png')
+    gameDisplay.blit(B_King,(edge+tile*x, edge+tile*y))
+
 
 boardImage = pygame.image.load('Pictures/Board.png')
-
-W_Pawn = pygame.image.load('Pictures/W_Pawn.png')
-W_Rook = pygame.image.load('Pictures/W_Rook.png')
-B_Rook = pygame.image.load('Pictures/B_Rook.png')
-W_Knight = pygame.image.load('Pictures/W_Knight.png')
-B_Knight = pygame.image.load('Pictures/B_Knight.png')
-W_Bishop = pygame.image.load('Pictures/W_Bishop.png')
-B_Bishop = pygame.image.load('Pictures/B_Bishop.png')
-W_Queen = pygame.image.load('Pictures/W_Queen.png')
-B_Queen = pygame.image.load('Pictures/B_Queen.png')
-W_King = pygame.image.load('Pictures/W_King.png')
-B_King = pygame.image.load('Pictures/B_King.png')
 
 
 # gameDisplay.blit(W_Pawn,(edge, edge+tile*6))
@@ -78,8 +111,10 @@ while not gameExit:
 
     gameDisplay.fill((255,255,255))
     Board = gameDisplay.blit(boardImage, (0,0))
-    pawnB(5,6)
-    pawnB(2,3)
+    PawnB(5,6)
+    PawnB(2,3)
+    KnightB(4,4)
+    KingW(2,2)
     #Define chess pieces for the pictures
 
     for event in pygame.event.get():
@@ -89,7 +124,6 @@ while not gameExit:
 
         if event.type == pygame.MOUSEBUTTONUP:
             boolRect = True
-            gameDisplay.blit(W_Rook,(edge, edge+tile*3))
 
 
 
@@ -104,3 +138,7 @@ while not gameExit:
     pygame.display.update()
 pygame.quit()
 quit()
+
+if __name__ == '__main__':
+    print("Exec main.py")
+    execfile('Engine.py')

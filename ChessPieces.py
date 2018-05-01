@@ -105,7 +105,7 @@ class Rook:
                             print("The symbol of the piece on the Y axis is: {}".format(_piece.symboll))
 
                             if _piece.returnY() == endPosY:
-                                print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll())
+                                print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll()))
                                 print("The desired position")
                                 #MAKE THIS WORK HERE WORK IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
@@ -124,7 +124,7 @@ class Rook:
                             print("The desired position")
 
                         if _piece.returnX() == endPosX:
-                            print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll())
+                            print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll()))
                             print("The desired position")
                             #MAKE THIS WORK HERE WORK IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
             else:
@@ -153,9 +153,9 @@ class Knight:
 
     def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board, brick, listPieces):
         try:
-            if (endPosX - piece.returnX()) == abs(int(1)): # if the Knight moves 1 to the right.
+            if (abs(endPosX - piece.returnX())) == abs(int(1)): # if the Knight moves 1 to the right.
                 print("This is true for x")
-                if (endPosY - piece.returnY()) == abs(int(2)): # If the Knight moves 2 to up
+                if (abs(endPosY - piece.returnY())) == abs(int(2)): # If the Knight moves 2 to up
                     print("This is true for y")
                     board.move(piece, endPosY, endPosX)
                 else:
@@ -164,8 +164,8 @@ class Knight:
                 print("Invalid move")
 
 
-            if (endPosX - piece.returnX()) == abs(int(2)): # if the knigt moves 2 to the left
-                if (endPosY - piece.returnY()) == abs(int(1)): # if the knigt moves 1 up
+            if (abs(endPosX - piece.returnX())) == abs(int(2)): # if the knigt moves 2 to the left
+                if (abs(endPosY - piece.returnY())) == abs(int(1)): # if the knigt moves 1 up
                     board.move(piece, endPosY, endPosX)
                 else:
                     print("Invalid move")
@@ -224,11 +224,19 @@ class Queen:
         self.Iswhite = status
         chessboard[self.x][self.y] = self.symboll
 
-    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board):
-        print("Starting on pos {} {} - Ending on pos {} {}".format(startPosX, startPosY, endPosX, endPosY))
-        print("statement {} if {} - {} < 1 (result is {})".format(endPosY-self.y < 1, endPosY,self.y,endPosY-self.y))
-        board.checkIfPieceOnPos(endPosX, endPosY)
-        board.move(piece, endPosX, endPosY)
+    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board, brick, listPieces):
+        try:
+            if ((abs(piece.returnX() - piece.returnY())) == (abs(endPosX - endPosY)) or (piece.returnX() == endPosX)):
+                print("Now this is true")
+                board.move(piece, endPosY, endPosX)
+
+            elif ((abs(piece.returnX() - piece.returnY())) == (abs(endPosX - endPosY)) or (piece.returnY() == endPosY)):
+                print("Now this is true")
+            else:
+                print("Not a legal move")
+
+        except IndexError:
+            print("The tile you are moving to does not exist")
 
     def returnStatus(self):
         return self.Iswhite
