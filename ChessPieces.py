@@ -105,10 +105,13 @@ class Rook:
                             print("The symbol of the piece on the Y axis is: {}".format(_piece.symboll))
 
                             if _piece.returnY() == endPosY:
-                                print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll()))
                                 print("The desired position")
-                                #MAKE THIS WORK HERE WORK IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
+                                if not _piece.returnStatus() == piece.returnStatus(): # Maybe : _piece.returnStatus() == True & piece.returnStatus() == True
+                                    print("Valid move!")
+                                    board.move(piece, endPosX, endPosY)
+                                else:
+                                    print("This is an invalid move. Same color")
 
 
             elif piece.returnY() == endPosY: # Is the axis the same, if so, we know that is moving in one direction
@@ -124,9 +127,14 @@ class Rook:
                             print("The desired position")
 
                         if _piece.returnX() == endPosX:
-                            print("The piece is {} and is a {}".format(_piece.returnStatus(), _piece.symboll()))
                             print("The desired position")
-                            #MAKE THIS WORK HERE WORK IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+
+                            if not _piece.returnStatus() == piece.returnStatus(): # Maybe : _piece.returnStatus() == True & piece.returnStatus() == True
+                                print("Valid move!")
+                                board.move(piece, endPosX, endPosY)
+                            else:
+                                print("This is an invalid move. Same color")
+
             else:
                 print("This is not a valid move, You're cossing two axises")
         except IndexError:

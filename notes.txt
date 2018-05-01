@@ -2,3 +2,5 @@
 2. Pawn can not attack to the sides, like it should be able to
 3. Pawn can move back illegal move
 4. Knight will sometimes not move
+5. Finish working for the pawn
+6. Make recommendation for where the next piece will go in GUI
