@@ -107,7 +107,7 @@ class Rook:
                             if _piece.returnY() == endPosY:
                                 print("The desired position")
 
-                                if not _piece.returnStatus() == piece.returnStatus(): # Maybe : _piece.returnStatus() == True & piece.returnStatus() == True
+                                if not _piece.returnStatus() == piece.returnStatus():
                                     print("Valid move!")
                                     board.move(piece, endPosX, endPosY)
                                 else:
@@ -126,14 +126,14 @@ class Rook:
                             print("The symbol of the piece on the x axis is: {}".format(_piece.symboll))
                             print("The desired position")
 
-                        if _piece.returnX() == endPosX:
-                            print("The desired position")
+                            if _piece.returnX() == endPosX:
+                                print("The desired position")
 
-                            if not _piece.returnStatus() == piece.returnStatus(): # Maybe : _piece.returnStatus() == True & piece.returnStatus() == True
-                                print("Valid move!")
-                                board.move(piece, endPosX, endPosY)
-                            else:
-                                print("This is an invalid move. Same color")
+                                if not _piece.returnStatus() == piece.returnStatus():
+                                    print("Valid move!")
+                                    board.move(piece, endPosX, endPosY)
+                                else:
+                                    print("This is an invalid move. Same color")
 
             else:
                 print("This is not a valid move, You're cossing two axises")
