@@ -204,6 +204,8 @@ class Bishop:
 
     def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board, brick, listPieces):
         try:
+            print(abs(piece.returnX() - piece.returnY()))
+            print(abs(endPosX - endPosY))
             if (abs(piece.returnX() - piece.returnY())) == (abs(endPosX - endPosY)):
                 print("Now this is true")
                 board.move(piece, endPosY, endPosX)
@@ -265,10 +267,8 @@ class King:
         self.Iswhite = status
         chessboard[self.x][self.y] = self.symboll
 
-    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board):
-        print("Starting on pos {} {} - Ending on pos {} {}".format(startPosX, startPosY, endPosX, endPosY))
-        print("statement {} if {} - {} < 1 (result is {})".format(endPosY-self.y < 1, endPosY,self.y,endPosY-self.y))
-        board.checkIfPieceOnPos(endPosX, endPosY)
+    def verifyMove(self, startPosY, startPosX, endPosY, endPosX, piece, board, brick, listPieces):
+
         board.move(piece, endPosX, endPosY)
 
     def returnStatus(self):
